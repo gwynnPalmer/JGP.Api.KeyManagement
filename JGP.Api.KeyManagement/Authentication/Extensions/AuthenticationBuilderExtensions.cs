@@ -30,7 +30,7 @@ namespace JGP.Api.KeyManagement.Authentication.Extensions
         public static AuthenticationBuilder AddApiKeyManagement(this AuthenticationBuilder authenticationBuilder,
             ApiKeyAuthenticationSettings apiKeyAuthenticationSettings)
         {
-            return authenticationBuilder.AddScheme<ApiKeyAuthenticationSettings, ApiKeyAuthenticationhandler>(
+            return authenticationBuilder.AddScheme<ApiKeyAuthenticationSettings, ApiKeyAuthenticationHandler>(
                 ApiKeyAuthenticationSettings.DefaultScheme,
                 options =>
                 {

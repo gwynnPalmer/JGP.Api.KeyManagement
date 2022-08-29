@@ -46,5 +46,7 @@ public class ApiKeyAuthenticationSettings : AuthenticationSchemeOptions
     ///     Gets or sets the name of the service.
     /// </summary>
     /// <value>The name of the service.</value>
+#pragma warning disable CS8618
     public string ServiceName { get; set; }
+#pragma warning restore CS8618
 }

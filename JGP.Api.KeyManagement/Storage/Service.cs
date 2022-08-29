@@ -22,9 +22,11 @@ namespace JGP.Api.KeyManagement.Storage
         /// <summary>
         ///     Initializes a new instance of the <see cref="Service" /> class.
         /// </summary>
+#pragma warning disable CS8618
         internal Service()
         {
         }
+#pragma warning restore CS8618
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="Service" /> class.
@@ -44,25 +46,25 @@ namespace JGP.Api.KeyManagement.Storage
         ///     Gets or sets the API key.
         /// </summary>
         /// <value>The API key.</value>
-        public string ApiKey { get; set; }
+        public string ApiKey { get; internal set; }
 
         /// <summary>
         ///     Gets or sets the service identifier.
         /// </summary>
         /// <value>The service identifier.</value>
-        public Guid ServiceId { get; set; }
+        public Guid ServiceId { get; internal set; }
 
         /// <summary>
         ///     Gets or sets the name of the service.
         /// </summary>
         /// <value>The name of the service.</value>
-        public string ServiceName { get; set; }
+        public string ServiceName { get; internal set; }
 
         /// <summary>
         ///     Gets or sets the URL.
         /// </summary>
         /// <value>The URL.</value>
-        public string? Url { get; set; }
+        public string? Url { get; internal set; }
 
         /// <summary>
         ///     Sets the name.

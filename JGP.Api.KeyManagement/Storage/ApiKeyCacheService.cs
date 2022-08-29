@@ -57,7 +57,7 @@ public class ApiKeyCacheService : IApiKeyCacheService
     /// </summary>
     public void Dispose()
     {
-        _context?.Dispose();
+        _context.Dispose();
     }
 
     #endregion

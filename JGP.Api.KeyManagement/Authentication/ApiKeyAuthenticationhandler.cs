@@ -6,7 +6,7 @@
 // Last Modified By : Joshua Gwynn-Palmer
 // Last Modified On : 07-30-2022
 // ***********************************************************************
-// <copyright file="ApiKeyAuthenticationhandler.cs" company="JGP.Api.KeyManagement">
+// <copyright file="ApiKeyAuthenticationHandler.cs" company="JGP.Api.KeyManagement">
 //     Copyright (c) . All rights reserved.
 // </copyright>
 // <summary></summary>
@@ -22,14 +22,14 @@ namespace JGP.Api.KeyManagement.Authentication
     using Storage;
 
     /// <summary>
-    ///     Class ApiKeyAuthenticationhandler.
+    ///     Class ApiKeyAuthenticationHandler.
     ///     Implements the
     ///     <see
     ///         cref="ApiKeyAuthenticationSettings" />
     /// </summary>
     /// <seealso
     ///     cref="ApiKeyAuthenticationSettings" />
-    public class ApiKeyAuthenticationhandler : AuthenticationHandler<ApiKeyAuthenticationSettings>
+    public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthenticationSettings>
     {
         /// <summary>
         ///     The key cache service
@@ -37,14 +37,14 @@ namespace JGP.Api.KeyManagement.Authentication
         private readonly IApiKeyCacheService _keyCacheService;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="ApiKeyAuthenticationhandler" /> class.
+        ///     Initializes a new instance of the <see cref="ApiKeyAuthenticationHandler" /> class.
         /// </summary>
         /// <param name="options">The options.</param>
         /// <param name="logger">The logger.</param>
         /// <param name="encoder">The encoder.</param>
         /// <param name="clock">The clock.</param>
         /// <param name="keyCacheService">The key cache service.</param>
-        public ApiKeyAuthenticationhandler(IOptionsMonitor<ApiKeyAuthenticationSettings> options, ILoggerFactory logger,
+        public ApiKeyAuthenticationHandler(IOptionsMonitor<ApiKeyAuthenticationSettings> options, ILoggerFactory logger,
             UrlEncoder encoder, ISystemClock clock, IApiKeyCacheService keyCacheService)
             : base(options, logger, encoder, clock)
         {

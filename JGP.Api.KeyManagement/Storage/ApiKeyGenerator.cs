@@ -55,7 +55,7 @@ namespace JGP.Api.KeyManagement.Storage
         /// </summary>
         public void Dispose()
         {
-            _generator?.Dispose();
+            _generator.Dispose();
         }
 
         /// <summary>

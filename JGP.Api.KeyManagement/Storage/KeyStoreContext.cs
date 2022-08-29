@@ -36,6 +36,7 @@ namespace JGP.Api.KeyManagement.Storage
         ///     See <see href="https://aka.ms/efcore-docs-dbcontext">DbContext lifetime, configuration, and initialization</see>
         ///     for more information.
         /// </remarks>
+#pragma warning disable CS8618
         public KeyStoreContext()
         {
             base.Database.SetCommandTimeout(1000);
@@ -53,6 +54,7 @@ namespace JGP.Api.KeyManagement.Storage
         public KeyStoreContext(DbContextOptions<KeyStoreContext> options) : base(options)
         {
         }
+#pragma warning restore CS8618
 
         #region DBSETS
 
