@@ -22,7 +22,7 @@ namespace JGP.Api.KeyManagement.Storage
         /// <summary>
         ///     Initializes a new instance of the <see cref="Service" /> class.
         /// </summary>
-        public Service()
+        internal Service()
         {
         }
 

@@ -72,17 +72,16 @@ public class ApiKeyCacheService : IApiKeyCacheService
     public async ValueTask<ServiceRecord> GetServiceAsync(Guid serviceId, string serviceName)
     {
         var cacheKey = $"{serviceId}-{serviceName}";
-        if (!_memoryCache.TryGetValue(cacheKey, out ServiceRecord record))
-        {
-            var service = await _context.Services
-                .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.ServiceId == serviceId);
+        if (_memoryCache.TryGetValue(cacheKey, out ServiceRecord record)) return record;
 
-            if (service == null) throw new ArgumentException("Service not found", nameof(serviceId));
-            record = new ServiceRecord(service);
+        var service = await _context.Services
+            .AsNoTracking()
+            .FirstOrDefaultAsync(x => x.ServiceId == serviceId);
 
-            _memoryCache.Set(cacheKey, record);
-        }
+        if (service == null) throw new ArgumentException("Service not found", nameof(serviceId));
+        record = new ServiceRecord(service);
+
+        _memoryCache.Set(cacheKey, record);
 
         return record;
     }
@@ -94,17 +93,16 @@ public class ApiKeyCacheService : IApiKeyCacheService
     /// <exception cref="System.ArgumentException">No Services Found</exception>
     public async ValueTask<List<ServiceRecord>> GetServicesAsync()
     {
-        if (!_memoryCache.TryGetValue(ServiceCacheKey, out List<ServiceRecord> services))
-        {
-            services = await _context.Services
-                .AsNoTracking()
-                .Select(service => new ServiceRecord(service))
-                .ToListAsync();
+        if (_memoryCache.TryGetValue(ServiceCacheKey, out List<ServiceRecord> services)) return services;
 
-            if (!services.Any()) throw new ArgumentException("No Services Found");
+        services = await _context.Services
+            .AsNoTracking()
+            .Select(service => new ServiceRecord(service))
+            .ToListAsync();
 
-            _memoryCache.Set(ServiceCacheKey, services);
-        }
+        if (!services.Any()) throw new ArgumentException("No Services Found");
+
+        _memoryCache.Set(ServiceCacheKey, services);
 
         return services;
     }
