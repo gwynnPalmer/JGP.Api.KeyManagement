@@ -42,7 +42,6 @@ namespace JGP.Api.KeyManagement.Authentication.Extensions
             services.RegisterTransientKeyStoreContext(configuration);
 
             // Setup additional Services.
-            services.AddMemoryCache();
             services.AddTransient<IApiKeyCacheService, ApiKeyCacheService>();
 
             // Ensure Key exists!

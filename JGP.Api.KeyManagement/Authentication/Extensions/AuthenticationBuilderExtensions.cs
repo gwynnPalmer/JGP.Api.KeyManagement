@@ -36,6 +36,7 @@ namespace JGP.Api.KeyManagement.Authentication.Extensions
                 {
                     options.ServiceId = apiKeyAuthenticationSettings.ServiceId;
                     options.ServiceName = apiKeyAuthenticationSettings.ServiceName;
+                    options.Url = apiKeyAuthenticationSettings.Url;
                 });
         }
     }

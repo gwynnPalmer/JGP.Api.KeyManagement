@@ -8,13 +8,13 @@
 		Name: KeyStore
 		Tables: dbo.Services
 			=> Columns:	[] ServiceId (PK, uniqueidentifier, not null)
-					[] ServiceName (nvarchar(50), not null)
-					[] ApiKey (nchar(36), not null)
-					[] Url (nvarchar(100, not null)
+						[] ServiceName (nvarchar(50), not null)
+						[] ApiKey (nchar(36), not null)
+						[] Url (nvarchar(100, not null)
 			=> Keys:	[] PK_Services (ServiceId)
 			=> Indexes:	[] IX_Service_ApiKey (Unique, Non-Clustered)
-					[] IX_Service_ServiceName (Unique, Non-Clustered)
-					[] PK_Services (Clustered)
+						[] IX_Service_ServiceName (Unique, Non-Clustered)
+						[] PK_Services (Clustered)
 	
 	==========
 	Usage:
@@ -25,14 +25,17 @@
 			=> Stored as Key: "ServiceId", Value: "Guid"
 		"ServiceName" (String) - The ServiceName of the Service to retrieve the ApiKey for.
 			=> Stored as Key: "ServiceName", Value: "String"
+		"Url" (String) - The Url of the Service to retrieve the ApiKey for.
+			=> Stored as Key: "Url", Value: "String"
 	[] For AppSettings, register as following:
 		"JGPKeyAuth": {
 		"ServiceId": "[SOME GUID]",
-		"ServiceName": "[NAME OF SERVICE]"
+		"ServiceName": "[NAME OF SERVICE]",
+		"Url": "[URL OF SERVICE]"
 		}
 	
 	Registering the Services (IServiceCollection and IConfiguration REQUIRED):
-	[STEP 1] Register the Services:
+	[STEP 1] Register the Services (Ensure that Memory Cache is registered beforehand!):
 		services.AddApiKeyManagement(configuration);
 	[STEP 2] Set Up Authentication:
 		var settings = services.BuildServiceProvider().GetService<ApiKeyAuthenticationSettings>();

@@ -36,6 +36,7 @@ public static class ConfigurationExtensions
         // Setup Environmental Variables.
         var serviceId = Environment.GetEnvironmentVariable("ServiceId");
         var serviceName = Environment.GetEnvironmentVariable("ServiceName");
+        var url = Environment.GetEnvironmentVariable("Url");
 
         apiKeyAuthenticationSettings.ServiceId = string.IsNullOrEmpty(serviceId)
             ? apiKeyAuthenticationSettings.ServiceId
@@ -44,6 +45,10 @@ public static class ConfigurationExtensions
         apiKeyAuthenticationSettings.ServiceName = string.IsNullOrEmpty(serviceName)
             ? apiKeyAuthenticationSettings.ServiceName
             : serviceName;
+
+        apiKeyAuthenticationSettings.Url = string.IsNullOrEmpty(url)
+            ? apiKeyAuthenticationSettings.Url
+            : url;
 
         return apiKeyAuthenticationSettings;
     }

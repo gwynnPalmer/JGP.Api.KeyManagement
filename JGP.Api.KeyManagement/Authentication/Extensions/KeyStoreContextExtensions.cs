@@ -34,6 +34,7 @@ namespace JGP.Api.KeyManagement.Authentication.Extensions
             {
                 ServiceId = apiKeyAuthenticationSettings.ServiceId,
                 ServiceName = apiKeyAuthenticationSettings.ServiceName,
+                Url = apiKeyAuthenticationSettings.Url,
                 ApiKey = generator.GenerateApiKey()
             };
             context.Services.Add(service);

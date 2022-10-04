@@ -49,4 +49,12 @@ public class ApiKeyAuthenticationSettings : AuthenticationSchemeOptions
 #pragma warning disable CS8618
     public string ServiceName { get; set; }
 #pragma warning restore CS8618
+
+    /// <summary>
+    ///     Gets or sets the URL.
+    /// </summary>
+    /// <value>The URL.</value>
+#pragma warning disable CS8618
+    public string Url { get; set; }
+#pragma warning restore CS8618
 }
