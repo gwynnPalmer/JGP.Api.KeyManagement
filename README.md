@@ -4,12 +4,13 @@
 	Storage:
 	==========
 	[] Self-Generation of KeyStoreContext is currently untested.
-	[] Key-Storage is tested with an existing database with the follwing schema:
+	[] Key-Storage is tested with an existing database with the following schema:
 		Name: KeyStore
 		Tables: dbo.Services
 			=> Columns:	[] ServiceId (PK, uniqueidentifier, not null)
 					[] ServiceName (nvarchar(50), not null)
 					[] ApiKey (nchar(36), not null)
+					[] Url (nvarchar(100, not null)
 			=> Keys:	[] PK_Services (ServiceId)
 			=> Indexes:	[] IX_Service_ApiKey (Unique, Non-Clustered)
 					[] IX_Service_ServiceName (Unique, Non-Clustered)
